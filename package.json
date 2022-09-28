@@ -19,6 +19,7 @@
     "zustand": "^4.0.0"
   },
   "scripts": {
+    "heroku-postbuild": "yarn install && yarn build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
