@@ -173,18 +173,7 @@ const ArticlePage = () => {
       break;
     default:
   }
-  let audio = new Audio(`http://haeun9969.dothome.co.kr/capstone/IT/${id}.wav`);
-
-  const [playing, setPlaying] = useState(false);
-
-  useEffect(() => {
-    playing ? audio.play() : audio.pause();
-    return () => audio.pause();
-  }, [playing]);
-
-  function togglePlay() {
-    setPlaying((s) => !s);
-  }
+ 
 
   return (
     <div>
