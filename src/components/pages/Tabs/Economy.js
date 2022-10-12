@@ -50,7 +50,7 @@ const Title = styled.h2`
 `;
 
 function Economy(props) {
-  if (props) {
+  if (!props) {
     var arr = props.articles.filter((val) => val.title.includes(props.search));
     return (
       <ArticleListArea>
