@@ -16,6 +16,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^1.0.1",
+    "yarn": "^1.22.19",
     "zustand": "^4.0.0"
   },
   "scripts": {
@@ -29,8 +30,6 @@
     "dev": "concurrently \"yarn start\" \"yarn server\" ",
     "react-start": "set BROWSER=none && yarn start"
   },
-  "homepage": "https://article-in-ear.netlify.app",
-}
   "eslintConfig": {
     "extends": [
       "react-app",
