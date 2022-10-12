@@ -1,15 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import palette from '../../../style/palette';
-import speaker from '../../../img/sound.png';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import palette from "../../../style/palette";
+import speaker from "../../../img/sound.png";
 
 const ArticleListArea = styled.div`
   margin: 2%;
   display: flex;
   flex-wrap: wrap;
-`
+`;
 
 const ArticleLink = styled(Link)`
   font-size: 14px;
@@ -35,42 +34,45 @@ const ArticleLink = styled(Link)`
   }
   height: 80px;
   display: flex;
-	justify-content: space-between;
-`
+  justify-content: space-between;
+`;
 
 const Thumbnail = styled.img`
   width: 93px;
   /* width: auto; */
   height: 100%;
   object-fit: contain;
-`
+`;
 
 const Title = styled.h2`
   margin-block: 2px;
   margin-left: 10px;
-`
+`;
 
-function Entertain (props) {
-  var arr = props.articles.filter(val => (val.title.includes(props.search)));
+function Entertain(props) {
+  var arr = props.articles.filter((val) => val.title.includes(props.search));
   return (
     <ArticleListArea>
-      {arr.map(a => (
-        <Article article={a} key={a._id} type='4'></Article>
+      {arr.map((a) => (
+        <Article article={a} key={a._id} type="4"></Article>
       ))}
     </ArticleListArea>
   );
-};
+}
 
 function Article(props) {
-  return(
-    <ArticleLink to={`/article/${props.type}/${props.article._id}`} style={{ textDecoration: 'none' }}>
-      <Thumbnail src={props.article.img} alt='img' />
+  return (
+    <ArticleLink
+      to={`/article/${props.type}/${props.article._id}`}
+      style={{ textDecoration: "none" }}
+    >
+      <Thumbnail src={props.article.img} alt="img" />
       <Title>{props.article.title}</Title>
-      <div className='speaker'>
-        <img className='speakerImg' src={speaker} alt='speaker' />
+      <div className="speaker">
+        <img className="speakerImg" src={speaker} alt="speaker" />
       </div>
     </ArticleLink>
-    )
+  );
 }
 
 export default Entertain;
