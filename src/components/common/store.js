@@ -3,7 +3,7 @@ import create from "zustand";
 
 //axios.defaults.withCredentials = true; //CORS 오류 때문에 추가
 
-export const useStore = create((set) => ({
+export const useStore = create((set, get) => ({
   articles: {
     economy: [],
     culture: [],
@@ -16,8 +16,7 @@ export const useStore = create((set) => ({
   //withCredentials: true, // 추가
 
   getArticles: async () => {
-    // const ecoResponse = await axios.get("/economy");
-    const ecoResponse = await axios.get("");
+    const ecoResponse = await axios.get("/economy");
     const culResponse = await axios.get("/culture");
     const socResponse = await axios.get("/society");
     const spoResponse = await axios.get("/sports");

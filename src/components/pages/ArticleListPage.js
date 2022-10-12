@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../common/Header';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import Header from "../common/Header";
+import styled from "styled-components";
 // import palette from '../../style/palette';
-import Economy from './Tabs/Economy';
-import Culture from './Tabs/Culture'
-import Society from './Tabs/Society'
-import Sports from './Tabs/Sports'
-import Entertain from './Tabs/Entertain'
-import Politics from './Tabs/Politics'
-import It from './Tabs/IT'
-import search from '../../img/search.png'
+import Economy from "./Tabs/Economy";
+import Culture from "./Tabs/Culture";
+import Society from "./Tabs/Society";
+import Sports from "./Tabs/Sports";
+import Entertain from "./Tabs/Entertain";
+import Politics from "./Tabs/Politics";
+import It from "./Tabs/IT";
+import search from "../../img/search.png";
 
 const Tab = styled.div`
   width: 100%;
@@ -28,12 +28,12 @@ const Tab = styled.div`
   li:active {
     background-color: gray;
   }
-`
+`;
 
 const SearchArea = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 const Input = styled.input`
   width: 40%;
@@ -41,43 +41,42 @@ const Input = styled.input`
   margin: 15px;
   border-radius: 10px;
   font-size: 12pt;
-`
+`;
 
-const ArticleListPage = ({article}) => {
-  
+const ArticleListPage = ({ article }) => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState(0);
 
-  const { economy, culture, society, sports, entertain, politic, IT } = article
+  const { economy, culture, society, sports, entertain, politic, IT } = article;
 
   const tabList = {
-    0: <Economy articles = {economy} search= {search}/>,
-    1: <Culture articles = {culture} search= {search}/>,
-    2: <Society articles={society} search= {search}/>,
-    3: <Sports articles={sports} search= {search}/>,
-    4: <Entertain articles={entertain} search= {search}/>,
-    5: <Politics articles={politic} search= {search}/>,
-    6: <It articles={IT} search= {search}/>
-  }
+    0: <Economy articles={economy} search={search} />,
+    1: <Culture articles={culture} search={search} />,
+    2: <Society articles={society} search={search} />,
+    3: <Sports articles={sports} search={search} />,
+    4: <Entertain articles={entertain} search={search} />,
+    5: <Politics articles={politic} search={search} />,
+    6: <It articles={IT} search={search} />,
+  };
 
   useEffect(() => {
-    if(economy.length > 0) {
+    if (economy.length > 0) {
       setLoading(false);
     }
-  }, [economy])
+  }, [economy]);
 
-  if (loading) return <div>Loading...</div>
+  if (loading) return <div>Loading...</div>;
 
   const clickTab = (id) => {
     setActiveTab(id);
-  }
+  };
 
   return (
     <div>
       <Header />
       <SearchArea>
-        <Input 
+        <Input
           type="text"
           placeholder="검색"
           onChange={(e) => {
@@ -94,9 +93,7 @@ const ArticleListPage = ({article}) => {
         <li onClick={() => clickTab(5)}>정치</li>
         <li onClick={() => clickTab(6)}>IT</li>
       </Tab>
-      <div>
-        {tabList[activeTab]}
-      </div>
+      <div>{tabList[activeTab]}</div>
     </div>
   );
 };
