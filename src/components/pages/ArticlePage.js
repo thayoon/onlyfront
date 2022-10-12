@@ -173,7 +173,9 @@ const ArticlePage = () => {
       break;
     default:
   }
-  let audio = new Audio(`http://haeun9969.dothome.co.kr/capstone/IT/${id}.wav`);
+  //let audio = new Audio(`http://haeun9969.dothome.co.kr/capstone/IT/${id}.wav`);
+  let audio = new Audio(``);
+
 
   const [playing, setPlaying] = useState(false);
 
