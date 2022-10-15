@@ -16,7 +16,9 @@ export const useStore = create((set, get) => ({
   //withCredentials: true, // 추가
 
   getArticles: async () => {
-    const ecoResponse = await axios.get("/economy");
+    const ecoResponse = await axios.get(
+      "https://capstone2team.herokuapp.com/economy"
+    );
     const culResponse = await axios.get("/culture");
     const socResponse = await axios.get("/society");
     const spoResponse = await axios.get("/sports");
