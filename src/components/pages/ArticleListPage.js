@@ -10,6 +10,7 @@ import Entertain from "./Tabs/Entertain";
 import Politics from "./Tabs/Politics";
 import It from "./Tabs/IT";
 import search from "../../img/search.png";
+import { useStore } from "zustand";
 
 const Tab = styled.div`
   width: 100%;
