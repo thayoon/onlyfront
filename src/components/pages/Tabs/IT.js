@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import palette from '../../../style/palette';
-import speaker from '../../../img/sound.png';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import palette from "../../../style/palette";
+import speaker from "../../../img/sound.png";
 import pauseIcon from "../../../img/pause-sm.png";
 
 const ArticleListArea = styled.div`
   margin: 2%;
   display: flex;
   flex-wrap: wrap;
-`
+`;
 
 const ArticleArea = styled.div`
   font-size: 14px;
@@ -47,28 +47,30 @@ const Thumbnail = styled.img`
   /* width: auto; */
   height: 100%;
   object-fit: contain;
-`
+`;
 
 const Title = styled.h2`
   margin-block: 2px;
   margin-left: 10px;
-`
+`;
 
-function IT (props) {
-  var arr = props.articles.filter(val => (val.title.includes(props.search)));
+function IT(props) {
+  var arr = props.articles.filter((val) => val.title.includes(props.search));
   return (
     <ArticleListArea>
-      {arr.map(a => (
-        <Article article={a} key={a._id} type='6'></Article>
+      {arr.map((a) => (
+        <Article article={a} key={a._id} type="6"></Article>
       ))}
     </ArticleListArea>
   );
-};
+}
 
 function Article(props) {
   const [playing, setPlaying] = useState(false);
 
-  let audio = new Audio(`http://haeun9969.dothome.co.kr/capstone/IT/${props.article._id}.wav`);
+  let audio = new Audio(
+    `http://haeun9969.dothome.co.kr/capstone/IT/${props.article._id}.wav`
+  );
 
   useEffect(() => {
     playing ? audio.play() : audio.pause();
@@ -79,7 +81,7 @@ function Article(props) {
     setPlaying((s) => !s);
   }
 
-  return(
+  return (
     <ArticleArea>
       <ArticleLink
         to={`/article/${props.type}/${props.article._id}`}
@@ -96,7 +98,7 @@ function Article(props) {
         )}{" "}
       </div>
     </ArticleArea>
-    )
+  );
 }
 
 export default IT;

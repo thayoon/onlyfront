@@ -1,0 +1,5 @@
+[[redirects]]
+from = "/proxy/*"
+  to = "https://capstone2team.herokuapp.com/:splat"  
+  status = 200
+  force = true

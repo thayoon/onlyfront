@@ -3,6 +3,9 @@ import create from "zustand";
 
 //axios.defaults.withCredentials = true; //CORS 오류 때문에 추가
 
+// netlify proxy setting
+export const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
+
 export const useStore = create((set, get) => ({
   articles: {
     economy: [],
@@ -16,15 +19,13 @@ export const useStore = create((set, get) => ({
   //withCredentials: true, // 추가
 
   getArticles: async () => {
-    const ecoResponse = await axios.get(
-      "https://capstone2team.herokuapp.com/economy"
-    );
-    const culResponse = await axios.get("/culture");
-    const socResponse = await axios.get("/society");
-    const spoResponse = await axios.get("/sports");
-    const entResponse = await axios.get("/entertain");
-    const polResponse = await axios.get("/politics");
-    const itResponse = await axios.get("/it");
+    const ecoResponse = await axios.get(`${PROXY}/economy`);
+    const culResponse = await axios.get(`${PROXY}/culture`);
+    const socResponse = await axios.get(`${PROXY}/society`);
+    const spoResponse = await axios.get(`${PROXY}/sports`);
+    const entResponse = await axios.get(`${PROXY}/entertain`);
+    const polResponse = await axios.get(`${PROXY}/politics`);
+    const itResponse = await axios.get(`${PROXY}/it`);
 
     let it = [];
     let eco = [];
