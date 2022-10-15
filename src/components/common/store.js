@@ -19,13 +19,27 @@ export const useStore = create((set, get) => ({
   //withCredentials: true, // 추가
 
   getArticles: async () => {
-    const ecoResponse = await axios.get(`${PROXY}/economy`);
-    const culResponse = await axios.get(`${PROXY}/culture`);
-    const socResponse = await axios.get(`${PROXY}/society`);
-    const spoResponse = await axios.get(`${PROXY}/sports`);
-    const entResponse = await axios.get(`${PROXY}/entertain`);
-    const polResponse = await axios.get(`${PROXY}/politics`);
-    const itResponse = await axios.get(`${PROXY}/it`);
+    const ecoResponse = await axios.get(
+      "https://capstone2team.herokuapp.com/economy"
+    );
+    const culResponse = await axios.get(
+      "https://capstone2team.herokuapp.com/culture"
+    );
+    const socResponse = await axios.get(
+      "https://capstone2team.herokuapp.com/society"
+    );
+    const spoResponse = await axios.get(
+      "https://capstone2team.herokuapp.com/sports"
+    );
+    const entResponse = await axios.get(
+      "https://capstone2team.herokuapp.com/entertain"
+    );
+    const polResponse = await axios.get(
+      "https://capstone2team.herokuapp.com/politics"
+    );
+    const itResponse = await axios.get(
+      "https://capstone2team.herokuapp.com/it"
+    );
 
     let it = [];
     let eco = [];
