@@ -7,23 +7,34 @@ const ArticleContainer = () => {
   const [load, setLoad] = useState(false);
 
   useEffect(() => {
-    const res = async () => {
-      await getArticles();
-      if (articles.economy.length) {
-        setLoad(true);
-      } else {
-        setLoad(false);
-      }
-    };
-    // getArticles();
-    res();
-    console.log(articles);
-    console.log(articles.economy.length);
-    // if (Object.keys(articles.economy).length !== 0) {
-    //   setLoad(true);
-    // }
-    // console.log(Object.keys(articles.economy).length);
+    getArticles();
+  }, []);
+
+  useEffect(() => {
+    if (articles.economy.length) {
+      setLoad(true);
+    } else {
+      setLoad(false);
+    }
   }, [articles]);
+//   useEffect(() => {
+//     const res = async () => {
+//       await getArticles();
+//       if (articles.economy.length) {
+//         setLoad(true);
+//       } else {
+//         setLoad(false);
+//       }
+//     };
+//     // getArticles();
+//     res();
+//     console.log(articles);
+//     console.log(articles.economy.length);
+//     // if (Object.keys(articles.economy).length !== 0) {
+//     //   setLoad(true);
+//     // }
+//     // console.log(Object.keys(articles.economy).length);
+//   }, [articles]);
 
   return (
     <div>
