@@ -73,6 +73,9 @@ function Article(props) {
       : "/api";
 
   let audio = new Audio(`${API}/${props.article._id}.wav`);
+  // let audio = new Audio(
+  //   `http://haeun9969.dothome.co.kr/capstone/IT/${props.article._id}.wav`
+  // );
 
   useEffect(() => {
     playing ? audio.play() : audio.pause();
