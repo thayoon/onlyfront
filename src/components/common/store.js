@@ -4,7 +4,7 @@ import create from "zustand";
 //axios.defaults.withCredentials = true; //CORS 오류 때문에 추가
 
 // netlify proxy setting
-export const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
+// export const API = window.location.hostname === "localhost" ? "" : "/api";
 
 export const useStore = create((set, get) => ({
   articles: {

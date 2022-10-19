@@ -51,6 +51,11 @@ const ArticlePage = () => {
   let isLast = false;
   let isFirst = false;
 
+  const API =
+    window.location.hostname === "localhost"
+      ? "http://haeun9969.dothome.co.kr/capstone/IT"
+      : "/api";
+
   switch (type) {
     case "0":
       length = economy.length;
@@ -173,7 +178,8 @@ const ArticlePage = () => {
       break;
     default:
   }
-  let audio = new Audio(`http://haeun9969.dothome.co.kr/capstone/IT/${id}.wav`);
+  // let audio = new Audio(`http://haeun9969.dothome.co.kr/capstone/IT/${id}.wav`);
+  let audio = new Audio(`${API}/${id}.wav`);
 
   const [playing, setPlaying] = useState(false);
 
